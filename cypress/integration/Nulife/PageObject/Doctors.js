@@ -1,13 +1,12 @@
 import Locators from "./Locatos";
+import Utils from "./utils";
+const ut = new Utils();
 const doc = require("../../../fixtures/Add_doc_data.json");
-
 const lc = new Locators();
 class Doctors {
   add_doctor() {
-    cy.get(lc.doctor_tab, { timeout: 20000 }).should("be.visible");
-    cy.get(lc.doctor_tab).click();
-    cy.get(lc.add_doctor, { timeout: 20000 }).should("be.visible");
-    cy.get(lc.add_doctor).click();
+    ut.wait_and_click(lc.doctor_tab)
+    ut.wait_and_click(lc.add_doctor)
     cy.get(lc.doc_FN).type(doc.first_name);
     cy.get(lc.doc_LN).type(doc.last_name);
     cy.get(".rounded-circle.p-1.bg-grey").attachFile(
@@ -43,9 +42,11 @@ class Doctors {
     cy.get(lc.doc_mcrn).type(doc.mcrn);
     cy.get(lc.cardex_review_yes).click();
     cy.get("button[type='submit']").click();
+    cy.get("#column-doctor_no",{ timeout: 20000}).should("be.visible")
 
   }
   ph_edit_doctor() {
+
     cy.get("div[id='row-2'] div[class='d-flex'] div", {
       timeout: 20000,
     }).should("be.visible");

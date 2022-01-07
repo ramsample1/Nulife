@@ -1,17 +1,16 @@
 import Locators from "./Locatos";
-
+import Utils from "./utils";
+const ut = new Utils();
 const lc = new Locators();
 
 class Cardex_Add_CP {
   add_cardex() {
-    cy.wait(3000);
-    // cy.scrollTo("top",{ensureScrollable:true})
     cy.get(lc.patient_select, { timeout: 20000 }).should("be.visible");
-    cy.wait(2000);
-    // cy.scrollTo("top",{ensureScrollable:true})
     cy.get(lc.patient_select).click("left");
-    cy.get(lc.add_medication_button, { timeout: 20000 }).should("be.visible");
-    cy.get(lc.add_medication_button).click();
+    ut.wait_and_click(lc.add_medication_button);
+    // cy.get(lc.add_medication_button, { timeout: 20000 }).should("be.visible");
+    // cy.get(lc.add_medication_button).click();
+    ut.wait_and_click(lc.search_medicine);
     cy.get(lc.search_medicine, { timeout: 20000 }).should("be.visible");
     cy.get(lc.search_medicine).type("Paracetamol/1000");
     cy.get(".css-1ew0esf div", { timeout: 20000 }).should("be.visible");
@@ -24,69 +23,23 @@ class Cardex_Add_CP {
     cy.get(".css-1wa3eu0-placeholder", { timeout: 20000 }).should("be.visible");
     cy.get(".css-1wa3eu0-placeholder").type("AND");
     cy.get(".css-1ew0esf div").contains("0.5 - AND HALF TABLET").click(); //3 no. option after type AND
-
-    // conditions if timeslots are total 4
-    cy.get("body").then((body) => {
-      if (
-        body.find(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[0].new_dosage']"
-        ).length > 0
-      ) {
-        cy.get(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[0].new_dosage']"
-        ).should("be.visible");
-        cy.get(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[0].new_dosage']"
-        ).type("1");
-      }
-
-      if (
-        body.find(
-          ":nth-child(2) > .row > .col-md-8 > .position-relative > .form-control"
-        ).length > 0
-      ) {
-        cy.get(
-          ":nth-child(2) > .row > .col-md-8 > .position-relative > .form-control"
-        ).should("be.visible");
-        cy.get(
-          ":nth-child(2) > .row > .col-md-8 > .position-relative > .form-control"
-        )
-          .clear()
-          .type("1");
-      }
-
-      if (
-        body.find(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[2].new_dosage']"
-        ).length > 0
-      ) {
-        cy.get(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[2].new_dosage']"
-        ).should("be.visible");
-        cy.get(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[2].new_dosage']"
-        ).type("1");
-      }
-
-      if (
-        body.find(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[3].new_dosage']"
-        ).length > 0
-      ) {
-        cy.get(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[3].new_dosage']"
-        ).should("be.visible");
-        cy.get(
-          "input[placeholder='Enter Quantity'][value='0'][name='slots_detail[3].new_dosage']"
-        ).type("1");
-      } else {
-        cy.get(
-          "div[class='p-0 modal-body'] button:nth-child(1) span:nth-child(1)"
-        ).click();
-      }
-    });
-    // submit button click
-    cy.get(".my-3 > span").click();
+  
+    if (cy.get("input[placeholder='Enter Quantity'][value='0'][name='slots_detail[0].new_dosage']").should('exist')){
+      cy.get("input[placeholder='Enter Quantity'][value='0'][name='slots_detail[0].new_dosage']").type("1")
+    }
+    else if (cy.get("input[placeholder='Enter Quantity'][value='0'][name='slots_detail[1].new_dosage']").should('exist')){
+      cy.get("input[placeholder='Enter Quantity'][value='0'][name='slots_detail[1].new_dosage']").type("1")
+    }
+    else if (cy.get("input[placeholder='Enter Quantity'][value='0'][name='slots_detail[2].new_dosage']").should('exist')){
+      cy.get("input[placeholder='Enter Quantity'][value='0'][name='slots_detail[2].new_dosage']").type("1")
+    }
+    else if (cy.get("input[placeholder='Enter Quantity'][value='0'][name='slots_detail[3].new_dosage']").should('exist')){
+      cy.get("input[placeholder='Enter Quantity'][value='0'][name='slots_detail[3].new_dosage']").type("1")
+    }
+    
+    cy.get(
+      "div[class='p-0 modal-body'] button:nth-child(1) span:nth-child(1)").click();
+    cy.wait(2000)
   }
 
   edit_cardex() {
@@ -110,6 +63,7 @@ class Cardex_Add_CP {
     cy.get("button[aria-label='Yes']").click();
     cy.get("button[aria-label='OK']", { timeout: 10000 }).should("be.visible");
     cy.get("button[aria-label='OK']").click();
+    cy.get(".card-body", { timeout: 15000 }).should("be.visible");
   }
 
   delete_nursing_home_cardex() {
@@ -130,13 +84,14 @@ class Cardex_Add_CP {
       .click();
     cy.get(lc.future_medication, { timeout: 20000 })
       .should("be.visible")
-      .click().type("Paracetamol");
+      .click()
+      .type("Paracetamol");
     cy.get(".css-1ew0esf")
       .contains("PARACETAMOL TIPOL 250MG SUPPOSITORIES Clonmel ")
       .click();
     cy.get("#default-pickerfuture_cardex_date").click();
     cy.get("span[aria-label='December 30, 2021']").click();
-    cy.get("button[class='w-100 customButtonDesing btn btn-primary']").click()
+    cy.get("button[class='w-100 customButtonDesing btn btn-primary']").click();
     cy.get(".css-1wa3eu0-placeholder", { timeout: 20000 }).should("be.visible");
     cy.get(".css-1wa3eu0-placeholder").type("AND");
     cy.get(".css-1ew0esf div").contains("0.5 - AND HALF TABLET").click(); //3 no. option after type AND
@@ -202,7 +157,7 @@ class Cardex_Add_CP {
       }
     });
     // submit button click
-    cy.get(".my-3 > span").click();
+    // cy.get(".my-3 > span").click();
   }
   add_patient_notes() {
     cy.get(lc.patient_select, { timeout: 20000 }).should("be.visible");

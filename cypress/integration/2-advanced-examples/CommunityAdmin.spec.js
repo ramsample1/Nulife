@@ -12,13 +12,27 @@ const sch = new Schedules();
 const cdx = new Cardex_Add_CP();
 
 describe("Pharmacy Community Suite ", function () {
-  beforeEach(function () {
+  before(function () {
     cy.log("****Login****");
     lp.login();
+    cy.saveLocalStorage();
     cy.log("***Login Done***");
   });
-
+  beforeEach(function () {
+    cy.viewport(1600, 1000);
+    cy.restoreLocalStorage()
+   
+  });
   afterEach(function () {
+    cy.visit("https://pharmacyadmin.appdesignproject.ie/home")
+    cy.wait(2000)
+    cy.get("#community_patient",{ timeout: 10000}).should("be.visible").click({ force: true })
+    cy.wait(5000)
+    cy.get("#row-0",{ timeout: 10000}).should("be.visible")
+    cy.wait(5000)
+  });
+
+  after(function () {
     cy.log("***Logout***");
     cy.wait(2000);
     lp.logout();
@@ -26,29 +40,26 @@ describe("Pharmacy Community Suite ", function () {
   });
 
   it("Add Patients functionality", function () {
-    cy.wait(2000);
     cp.add_patient();
-    cy.wait(2000);;
   });
 
   it("Edit Patients functionality", function () {
     cy.wait(2000);
     cp.edit_patient();
-    cy.wait(2000);
+    
   });
   it("Check all filters working on patient page", function () {
     cy.wait(2000);
     cp.page_filters();
-    cy.wait(2000);
   });
 
   it("Check add medication functionality", function () {
     cy.wait(3000);
     md.add_medication();
-    cy.wait(3000);
+    
   });
   it("Add Schedule functionality", function () {
-    cy.wait(2000);
+    // cy.wait(2000);
     sch.add_schedule();
     cy.wait(1000)
     sch.edit_schedule();
@@ -56,7 +67,7 @@ describe("Pharmacy Community Suite ", function () {
     sch.delete_schedule();
   });
   it("Add Cardex functionality", function () {
-
+    cy.wait(1000)
     cdx.add_cardex();
     cy.wait(1000);
     cdx.edit_cardex();

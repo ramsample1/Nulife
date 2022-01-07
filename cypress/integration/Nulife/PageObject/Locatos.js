@@ -67,9 +67,9 @@ class Locators {
     refresh_icon = "img[alt='refreshIcon']"
 
 // Medications page of community patients 
-    medication_button = "body > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(1) > li:nth-child(2) > a:nth-child(1) > span:nth-child(2)"
+    medication_button = ".nav-item"
     add_medicine = "button[type='button'] span"
-    category_medicine = "body > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"
+    category_medicine = ".css-1wa3eu0-placeholder"
     pain_category = "#react-select-2-option-1"
     active_ingredient ="input[placeholder='Enter Active Ingredient']"
     enter_brand = "input[placeholder='Enter Brand']"
@@ -86,14 +86,14 @@ class Locators {
     barcode_gen_button = "body > div:nth-child(6) > div > div.modal.show > div > div > div.modal-body > div > form > div:nth-child(4) > div.col-lg-12 > div > div > div:nth-child(2) > div.mb-1.col-md-3 > div > div > div:nth-child(3) > svg"
 
   //Cardex patient 
-  patient_select = "#row-3"
+  patient_select = "#row-0"
   add_medication_button = "button[type='button'] span"
-  search_medicine = "body > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"
+  search_medicine = ".css-1wa3eu0-placeholder"
   tab_select = "#react-select-3-option-2"
   edit_cardex_button = "div[id='row-0'] div:nth-child(2) img:nth-child(1)"
   frequency_edit = "body > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"
   update_cardex_button = "div[class='p-0 modal-body'] button:nth-child(1) span:nth-child(1)"
-  edit_slot_cardex = "input[placeholder='Enter Quantity'][value='1'][name='slots_detail[1].new_dosage']"
+  edit_slot_cardex = " input[placeholder='Enter Quantity'][name='slots_detail[1].new_dosage']"
   delete_icon_cardex = "div.app-container div.wrapper.horizontal-layout.horizontal-menu.navbar-floating.footer-static.menu-expanded div.app-content.content div.content-wrapper.animate__animated.animate__fadeIn div.content-body div.sc-fznxsB.hBxfkO div.sc-fznWqX.fiBTNe div.sc-AxjAm.fexZtx.rdt_Table div.sc-fzpjYC.fNcYWv.rdt_TableBody div.sc-fzoLsD.ejmCap.rdt_TableRow:nth-child(1) div.sc-AxhCb.sc-AxhUy.sc-AxgMl.kKJSfq.rdt_TableCell:nth-child(8) div.pl-1:nth-child(3) > img:nth-child(1)"
   delete_icon_nursing_home_cardex = "div.app-container div.wrapper.horizontal-layout.horizontal-menu.navbar-floating.footer-static.menu-expanded div.app-content.content div.content-wrapper.animate__animated.animate__fadeIn div.content-body div.sc-fznxsB.hBxfkO div.sc-fznWqX.fiBTNe div.sc-AxjAm.fexZtx.rdt_Table div.sc-fzpjYC.fNcYWv.rdt_TableBody div.sc-fzoLsD.ejmCap.rdt_TableRow div.sc-AxhCb.sc-AxhUy.sc-AxgMl.kKJSfq.rdt_TableCell:nth-child(9) div.pl-1:nth-child(3) > img:nth-child(1)"
 
@@ -106,7 +106,7 @@ class Locators {
   schedule_name = "input[placeholder='Enter identity name']"
   schedule_time_slot = "body > div:nth-child(6) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > form:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)"
   schedule_slot_select = "#react-select-2-option-1"
-  slot_1 = "body > div:nth-child(6) > div > div.modal.show > div > div > div.modal-body > div > form > div:nth-child(2) > div:nth-child(1) > div > div > div > div.css-1hwfws3"
+  slot_1 = ":nth-child(1) > .position-relative > .react-select > .css-9jfzet-control > .css-1hwfws3"
   slot_2 = ":nth-child(2) > :nth-child(2) > .position-relative > .react-select > .css-9jfzet-control > .css-1hwfws3"
   slot_3 = ":nth-child(2) > :nth-child(3) > .position-relative > .react-select > .css-9jfzet-control > .css-1hwfws3"
   slot_4 = ":nth-child(4) > .position-relative > .react-select > .css-9jfzet-control > .css-1hwfws3"
@@ -139,7 +139,7 @@ class Locators {
   doc_mobile = "input[placeholder='Telephone Number']"
   doc_fax = "input[placeholder='Enter Fax']"
   doc_email = "input[placeholder='Enter email']"
-  doc_nursing_home = "div[class=' css-1xk5r9t-control'] div[class=' css-1wa3eu0-placeholder']"
+  doc_nursing_home = "#nursing_home"
   doc_nursing_home_select = ".css-1ew0esf"
   doc_clinic = "div[id='clinic'] div[class=' css-1wa3eu0-placeholder']"
   doc_clinic_select = ".css-1ew0esf"
@@ -166,7 +166,7 @@ class Locators {
   nh_submit_button = "button[type='submit']"
   nh_country = "div[class=' css-9jfzet-control'] div[class=' css-1hwfws3']"
 
-  nh_clinic_icon = "div.app-container div.wrapper.horizontal-layout.horizontal-menu.navbar-floating.footer-static.menu-expanded div.app-content.content div.content-wrapper.animate__animated.animate__fadeIn div.content-body div.sc-fznxsB.hBxfkO div.sc-fznWqX.fiBTNe div.sc-AxjAm.gTvYgp.rdt_Table div.sc-fzpjYC.fNcYWv.rdt_TableBody div.sc-fzoLsD.gxUhjh.rdt_TableRow:nth-child(4) div.sc-AxhCb.sc-AxhUy.sc-AxgMl.iJQcmg.rdt_TableCell:nth-child(6) div:nth-child(1) div:nth-child(1) > img.mr-75.cursor-pointer:nth-child(1)"
+  nh_clinic_icon = "#row-3 >div:nth-child(6) >div:nth-child(1) > div> [title='Add Clinic']"
   nh_clinic_name = "input[placeholder='Clinic Name']"
   nh_clinic_submit = "button[type='submit']"
   nh_clinic_edit = "img[title='Edit'][alt='editIcon']"
@@ -177,12 +177,12 @@ class Locators {
   nh_clinic_close = ".close"
 
 
-  nh_edit_icon = "div.app-container div.wrapper.horizontal-layout.horizontal-menu.navbar-floating.footer-static.menu-expanded div.app-content.content div.content-wrapper.animate__animated.animate__fadeIn div.content-body div.sc-fznxsB.hBxfkO div.sc-fznWqX.fiBTNe div.sc-AxjAm.gTvYgp.rdt_Table div.sc-fzpjYC.fNcYWv.rdt_TableBody div.sc-fzoLsD.gxUhjh.rdt_TableRow:nth-child(4) div.sc-AxhCb.sc-AxhUy.sc-AxgMl.iJQcmg.rdt_TableCell:nth-child(6) div:nth-child(1) div:nth-child(1) > img.mr-75.cursor-pointer:nth-child(4)"
+  nh_edit_icon = "#row-3 >div:nth-child(6) >div:nth-child(1) > div> [title='Edit']"
   nh_edit_name = "input[placeholder='Nursing Home Name']"
   nh_edit_address1 = "input[placeholder='Address Line 1']"
   nh_edit_don_name = "input[placeholder='Don Name']"
   nh_save_edit_nh = "button[type='submit']"
-  nh_delete_button = "div.app-container div.wrapper.horizontal-layout.horizontal-menu.navbar-floating.footer-static.menu-expanded div.app-content.content div.content-wrapper.animate__animated.animate__fadeIn div.content-body div.sc-fznxsB.hBxfkO div.sc-fznWqX.fiBTNe div.sc-AxjAm.gTvYgp.rdt_Table div.sc-fzpjYC.fNcYWv.rdt_TableBody div.sc-fzoLsD.gxUhjh.rdt_TableRow:nth-child(4) div.sc-AxhCb.sc-AxhUy.sc-AxgMl.iJQcmg.rdt_TableCell:nth-child(6) div:nth-child(1) div:nth-child(1) > img.mr-75.cursor-pointer:nth-child(5)"
+  nh_delete_button = "#row-3 >div:nth-child(6) >div:nth-child(1) > div> [title='Delete']"
   nh_delete_confirm = "button[aria-label='Yes']"
   nh_delete_success = "button[aria-label='OK']"
 

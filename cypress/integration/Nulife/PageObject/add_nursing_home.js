@@ -59,6 +59,7 @@ class nursing_home {
     cy.get(lc.nh_delete_success, { timeout: 10000 })
       .should("be.visible")
       .click();
+    cy.wait(2000)
   }
   nursing_home_patient_list(){
       cy.get("row-0", { timeout: 10000 }).should("be.visible")

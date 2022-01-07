@@ -8,7 +8,7 @@ class Nursing_home_patients {
     // cy.get(lc.community_patient).click();
     cy.get(lc.add_patients, { timeout: 20000 }).should("be.visible");
     cy.get(lc.add_patients).click();
-    cy.get(lc.first_name).type(patient_data.first_name);
+    // cy.get(lc.first_name).type(patient_data.first_name);
     cy.get(lc.last_name).type(patient_data.last_name);
     cy.get(lc.address1).type(patient_data.address_one);
     cy.get(lc.address2).type(patient_data.address_two);
@@ -43,6 +43,7 @@ class Nursing_home_patients {
     cy.wait(2000);
     cy.get(lc.diet).type("Nothing new");
     cy.get(lc.submit).click();
+    cy.get(".mb-0.headerClass ", { timeout: 20000 }).should("be.visible")
   }
   edit_patient() {
     // cy.get(lc.community_patient).click();
@@ -58,6 +59,7 @@ class Nursing_home_patients {
     cy.get(lc.edit_post_code).clear().type("AB-1004");
     cy.get(lc.save_details).click();
     cy.wait(3000);
+    cy.get(".mb-0.headerClass ", { timeout: 20000 }).should("be.visible")
   }
 }
 export default Nursing_home_patients;
